@@ -37,7 +37,7 @@ class MangaPageOcr:
         if not self.disable_ocr:
             logger.info('Initializing text detector')
             self.text_detector = TextDetector(model_path=cache.comic_text_detector, input_size=detector_input_size,
-                                              device='cpu', act='leaky')
+                                              device='cuda', act='leaky')
             self.mocr = MangaOcr(pretrained_model_name_or_path, force_cpu)
 
     def __call__(self, img_path):
